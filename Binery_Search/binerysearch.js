@@ -16,3 +16,22 @@ function iterative(n, k, arr) {
   console.log("-1");
   return;
 }
+
+//binery search using recursion
+recursiveBinarySearch(arr, 0, n - 1, k);
+
+function recursiveBinarySearch(array, low, high, element) {
+  if (low > high) {
+    console.log("-1");
+    return;
+  }
+  let mid = low + parseInt((high - low) / 2);
+  if (array[mid] == element) {
+    console.log("1");
+    return;
+  }
+  if (array[mid] > element) {
+    return recursiveBinarySearch(array, low, mid - 1, element);
+  }
+  return recursiveBinarySearch(array, mid + 1, high, element);
+}
